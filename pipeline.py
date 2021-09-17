@@ -1,6 +1,6 @@
 #kELVIN WHITE TASK
 #import print/logging library
-import logging
+import logging,json
 
 #import apache beam library
 import apache_beam as beam
@@ -67,7 +67,7 @@ PropertyCleanData = ( newDataObject
 
 # #Group the PCollection
 PropertyTypeGroups = ( PropertyCleanData
-                | 'Grouping by Unique id ' >> beam.GroupBy('unique_id')
+                | 'Grouping by Unique id ' >> beam.GroupBy(TransID='unique_id')
                 )
 
 #Print size of PCollection
